@@ -145,6 +145,56 @@ sudo pip3 install pyaudio requests smbus bme680 luma.oled adafruit-circuitpython
 ```
 
 
+### Instalação do Pillow
+
+## 1. Teste rápido via Terminal (One-liner)
+Execute este comando para verificar a versão instalada e se o Python consegue encontrá-la:
+
+```bash
+python3 -c "from PIL import Image; print('Pillow instalado com sucesso! Versão:', Image.__version__)"
+```
+
+## 2. Teste de Suporte a Formatos (Crucial para o seu caso)
+Como o erro anterior era sobre o **JPEG**, é importante verificar se o Pillow foi compilado com suporte a esse formato. Use este comando:
+
+```bash
+python3 -m PIL
+```
+Isso exibirá uma lista de dependências. Verifique se as linhas abaixo estão marcadas como **`OK`**:
+* `JPEG support OK`
+* `ZLIB (PNG) support OK`
+
+---
+
+## 3. Script de teste funcional
+Se quiser ter certeza absoluta, crie um arquivo chamado `teste_pil.py` e adicione o código abaixo. Ele cria uma imagem simples do zero:
+
+```python
+from PIL import Image, ImageDraw
+
+try:
+    # Cria uma imagem de 100x100 pixels, cor azul
+    img = Image.new('RGB', (100, 100), color = 'blue')
+    
+    # Desenha um círculo branco
+    draw = ImageDraw.Draw(img)
+    draw.ellipse((25, 25, 75, 75), fill="white")
+    
+    # Tenta salvar (isso testa os encoders de imagem)
+    img.save('teste.png')
+    print("Sucesso: Imagem criada e salva como 'teste.png'!")
+except Exception as e:
+    print(f"Erro ao processar imagem: {e}")
+```
+
+Depois, execute com:
+```bash
+python3 teste_pil.py
+```
+
+
+
+
 ### Instalação do **OpencV**
 Instalar o OpenCV em um Raspberry Pi 3B pode ser um processo demorado, no entanto, é um passo fundamental para projetos de visão computacional.
 
