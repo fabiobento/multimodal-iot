@@ -114,7 +114,7 @@ pip3 install pyaudio
 O INMP441 não possui driver nativo "plug-and-play". Utilizamos o overlay do Google VoiceHAT para compatibilidade.
 Edite o arquivo de boot:
 ```bash
-sudo nano /boot/firmware/config.txt
+sudo nano /boot/config.txt
 ```
 A localização desse arquivo pode ser /boot/config.txt em versões antigas.
 
