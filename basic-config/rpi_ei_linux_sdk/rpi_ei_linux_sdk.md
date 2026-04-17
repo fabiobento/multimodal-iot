@@ -38,6 +38,13 @@ Nesse roteiro de laboratório você instalará bibliotecas python para o seu RPi
         Python 3.9.2
     ```
     Se o número da versão exibido for `3.7.0` ou superior (como `3.8.x`, `3.9.x`, etc.), então a versão do python atende ao requisito.
+
+    Instalação do `pip`
+    ```bash
+    sudo apt update
+    sudo apt install python3-pip
+    ```
+
 ## Bibliotecas em Nível de Sistema
 ### Bibliotecas para Câmera no RPi
 - Não podem faltar no seu RPi o [`libcamera`](https://www.raspberrypi.com/documentation/computers/camera_software.html) e o [`picamera2`](https://github.com/raspberrypi/picamera2).
